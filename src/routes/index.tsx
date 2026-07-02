@@ -145,15 +145,9 @@ function Home() {
               <li key={n.id}>
                 <a
                   href={`#${n.id}`}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {n.label}
-                  {n.live && (
-                    <span className="inline-flex items-center gap-1 rounded-sm border border-accent px-1.5 py-0.5 text-[0.55rem] tracking-[0.2em] text-accent">
-                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                      LIVE
-                    </span>
-                  )}
                 </a>
               </li>
             ))}
