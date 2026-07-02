@@ -34,7 +34,7 @@ const NAV = [
   { id: "news", label: "News" },
   { id: "gallery", label: "Gallery" },
   { id: "presentations", label: "Presentations" },
-  { id: "observing", label: "Observing", live: true },
+  { id: "observing", label: "Observing" },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
 ];
