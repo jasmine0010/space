@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { ArrowUpRight, FileText, Calendar, Play } from "lucide-react";
 
 import hero from "@/assets/hero.jpg";
 import about from "@/assets/about.jpg";
@@ -12,6 +13,7 @@ import n1 from "@/assets/n1.jpg";
 import n2 from "@/assets/n2.jpg";
 import n3 from "@/assets/n3.jpg";
 import { FadeIn } from "@/components/FadeIn";
+import { ArrowLink } from "@/components/ArrowLink";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,14 +34,39 @@ const NAV = [
   { id: "news", label: "News" },
   { id: "gallery", label: "Gallery" },
   { id: "presentations", label: "Presentations" },
+  { id: "observing", label: "Observing", live: true },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
 ];
 
+const HERO_FEATURES = [
+  { label: "Deep Sky Survey", title: "Andromeda Field Report", href: "#news" },
+  { label: "Public Observing", title: "Perseid Watch, August 12", href: "#news" },
+  { label: "Instrumentation", title: "New 24-inch Ritchey-Chrétien", href: "#news" },
+];
+
 const NEWS = [
-  { img: n1, date: "March 14, 2026", title: "Annual Deep Sky Symposium Convenes in Flagstaff" },
-  { img: n2, date: "February 02, 2026", title: "New Radio Array Joins the Meridian Observing Network" },
-  { img: n3, date: "January 21, 2026", title: "Public Observing Night Draws Record Attendance" },
+  {
+    img: n1,
+    tag: "Article",
+    read: "6 min read",
+    date: "March 14, 2026",
+    title: "Annual Deep Sky Symposium Convenes in Flagstaff",
+  },
+  {
+    img: n2,
+    tag: "Event",
+    read: "3 min read",
+    date: "February 02, 2026",
+    title: "New Radio Array Joins the Meridian Observing Network",
+  },
+  {
+    img: n3,
+    tag: "Article",
+    read: "4 min read",
+    date: "January 21, 2026",
+    title: "Public Observing Night Draws Record Attendance",
+  },
 ];
 
 const GALLERY = [
@@ -56,6 +83,28 @@ const TEAM = [
   { name: "Amara Okonkwo", role: "Outreach Lead" },
   { name: "Dr. Rafael Silva", role: "Instrumentation" },
 ];
+
+function SectionHeader({
+  eyebrow,
+  title,
+  linkLabel,
+  href,
+}: {
+  eyebrow: string;
+  title: string;
+  linkLabel?: string;
+  href?: string;
+}) {
+  return (
+    <div className="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p className="text-xs uppercase tracking-[0.28em] text-accent">{eyebrow}</p>
+        <h2 className="mt-4 text-4xl md:text-5xl">{title}</h2>
+      </div>
+      {linkLabel && href && <ArrowLink href={href}>{linkLabel}</ArrowLink>}
+    </div>
+  );
+}
 
 function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -96,9 +145,15 @@ function Home() {
               <li key={n.id}>
                 <a
                   href={`#${n.id}`}
-                  className="text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {n.label}
+                  {n.live && (
+                    <span className="inline-flex items-center gap-1 rounded-sm border border-accent px-1.5 py-0.5 text-[0.55rem] tracking-[0.2em] text-accent">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                      LIVE
+                    </span>
+                  )}
                 </a>
               </li>
             ))}
@@ -113,7 +168,7 @@ function Home() {
       </header>
 
       {/* Hero */}
-      <section id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden">
+      <section id="top" className="relative min-h-screen w-full overflow-hidden">
         <img
           src={hero}
           alt="Deep space galaxy"
@@ -121,8 +176,9 @@ function Home() {
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/60 to-transparent" />
-        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 md:px-10 md:pb-24">
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
+
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 pt-40 md:px-10 md:pb-14">
           <p className="mb-6 text-xs uppercase tracking-[0.32em] text-accent">
             Est. 1962 · Public Astronomy
           </p>
@@ -133,6 +189,39 @@ function Home() {
             Observing the deep sky and sharing it with the public since a time before digital
             imaging.
           </p>
+
+          <div className="mt-8">
+            <a
+              href="#presentations"
+              className="group inline-flex items-center gap-3 bg-accent px-6 py-3 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-opacity hover:opacity-90"
+            >
+              <Play size={14} strokeWidth={2} fill="currentColor" />
+              Watch the film
+            </a>
+          </div>
+
+          {/* Feature strip */}
+          <div className="mt-14 grid grid-cols-1 gap-8 border-t border-white/15 pt-8 md:mt-20 md:grid-cols-3 md:gap-10">
+            {HERO_FEATURES.map((f) => (
+              <a
+                key={f.title}
+                href={f.href}
+                className="group flex items-start justify-between gap-6"
+              >
+                <div>
+                  <p className="text-[0.65rem] uppercase tracking-[0.28em] text-white/60">
+                    {f.label}
+                  </p>
+                  <p className="mt-3 text-lg leading-snug text-white transition-colors group-hover:text-accent md:text-xl">
+                    {f.title}
+                  </p>
+                </div>
+                <span className="mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/30 text-white transition-colors group-hover:border-accent group-hover:text-accent">
+                  <ArrowUpRight size={14} strokeWidth={1.5} />
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -182,24 +271,18 @@ function Home() {
       {/* News */}
       <section id="news" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="text-xs uppercase tracking-[0.28em] text-accent">News & Events</p>
-              <h2 className="mt-4 text-4xl md:text-5xl">Recent from the observatory.</h2>
-            </div>
-            <a
-              href="#"
-              className="text-xs uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground"
-            >
-              All updates →
-            </a>
-          </div>
+          <SectionHeader
+            eyebrow="News & Events"
+            title="Recent from the observatory."
+            linkLabel="Recently published"
+            href="#news"
+          />
           <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
             {NEWS.map((item) => (
               <FadeIn key={item.title}>
                 <article className="group">
                   <div
-                    className="aspect-[4/3] w-full overflow-hidden"
+                    className="relative aspect-[4/3] w-full overflow-hidden"
                     style={{ backgroundColor: "#1a1a2e" }}
                   >
                     <img
@@ -210,11 +293,21 @@ function Home() {
                       loading="lazy"
                       className="h-full w-full object-cover"
                     />
+                    <span className="chip absolute left-4 top-4">
+                      {item.tag === "Event" ? (
+                        <Calendar size={12} strokeWidth={1.75} />
+                      ) : (
+                        <FileText size={12} strokeWidth={1.75} />
+                      )}
+                      {item.tag}
+                    </span>
                   </div>
                   <p className="mt-6 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    {item.date}
+                    {item.date} · {item.read}
                   </p>
-                  <h3 className="mt-3 text-2xl leading-tight md:text-[1.6rem]">{item.title}</h3>
+                  <h3 className="mt-3 text-2xl leading-tight transition-colors group-hover:text-accent md:text-[1.6rem]">
+                    {item.title}
+                  </h3>
                 </article>
               </FadeIn>
             ))}
@@ -225,8 +318,12 @@ function Home() {
       {/* Gallery */}
       <section id="gallery" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <p className="text-xs uppercase tracking-[0.28em] text-accent">Gallery</p>
-          <h2 className="mt-4 text-4xl md:text-5xl">Images from our members.</h2>
+          <SectionHeader
+            eyebrow="Gallery"
+            title="Images from our members."
+            linkLabel="Full archive"
+            href="#gallery"
+          />
         </div>
         <div className="mx-auto mt-16 grid max-w-[1400px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
           {GALLERY.map((img) => (
@@ -251,11 +348,15 @@ function Home() {
       {/* Presentations */}
       <section id="presentations" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+          <SectionHeader
+            eyebrow="Presentations"
+            title="Recorded lectures."
+            linkLabel="All talks"
+            href="#presentations"
+          />
+          <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
-              <p className="text-xs uppercase tracking-[0.28em] text-accent">Presentations</p>
-              <h2 className="mt-4 text-4xl md:text-5xl">Recorded lectures.</h2>
-              <p className="mt-6 text-muted-foreground">
+              <p className="text-muted-foreground">
                 Selected talks from our monthly meetings, guest lectures, and public observing
                 nights.
               </p>
@@ -354,9 +455,10 @@ function Home() {
             </div>
             <button
               type="submit"
-              className="text-xs uppercase tracking-[0.28em] text-accent transition-opacity hover:opacity-70"
+              className="inline-flex items-center gap-3 bg-accent px-6 py-3 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-opacity hover:opacity-90"
             >
-              Send message →
+              Send message
+              <ArrowUpRight size={14} strokeWidth={2} />
             </button>
           </form>
         </div>
