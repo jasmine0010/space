@@ -1,24 +1,398 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import hero from "@/assets/hero.jpg";
+import about from "@/assets/about.jpg";
+import g1 from "@/assets/g1.jpg";
+import g2 from "@/assets/g2.jpg";
+import g3 from "@/assets/g3.jpg";
+import g4 from "@/assets/g4.jpg";
+import g5 from "@/assets/g5.jpg";
+import n1 from "@/assets/n1.jpg";
+import n2 from "@/assets/n2.jpg";
+import n3 from "@/assets/n3.jpg";
+import { FadeIn } from "@/components/FadeIn";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "preload", as: "image", href: hero },
+    ],
+    meta: [
+      { property: "og:image", content: hero },
+      { name: "twitter:image", content: hero },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const NAV = [
+  { id: "about", label: "About" },
+  { id: "news", label: "News" },
+  { id: "gallery", label: "Gallery" },
+  { id: "presentations", label: "Presentations" },
+  { id: "team", label: "Team" },
+  { id: "contact", label: "Contact" },
+];
+
+const NEWS = [
+  { img: n1, date: "March 14, 2026", title: "Annual Deep Sky Symposium Convenes in Flagstaff" },
+  { img: n2, date: "February 02, 2026", title: "New Radio Array Joins the Meridian Observing Network" },
+  { img: n3, date: "January 21, 2026", title: "Public Observing Night Draws Record Attendance" },
+];
+
+const GALLERY = [
+  { src: g1, alt: "Emission nebula", span: "md:col-span-2" },
+  { src: g2, alt: "Spiral galaxy", span: "" },
+  { src: g3, alt: "Saturn and its rings", span: "" },
+  { src: g4, alt: "Milky Way over mountains", span: "md:col-span-2" },
+  { src: g5, alt: "Cosmic cliffs" },
+];
+
+const TEAM = [
+  { name: "Dr. Elena Vasquez", role: "Director of Research" },
+  { name: "Marcus Chen", role: "Chief Observer" },
+  { name: "Amara Okonkwo", role: "Outreach Lead" },
+  { name: "Dr. Rafael Silva", role: "Instrumentation" },
+];
+
+function Home() {
+  const [scrolled, setScrolled] = useState(false);
+  const [lightbox, setLightbox] = useState<string | null>(null);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLightbox(null);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox]);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Nav */}
+      <header
+        className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${
+          scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
+        }`}
+      >
+        <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
+          <a href="#top" className="text-sm uppercase tracking-[0.28em]">
+            Meridian
+          </a>
+          <ul className="hidden gap-8 md:flex">
+            {NAV.map((n) => (
+              <li key={n.id}>
+                <a
+                  href={`#${n.id}`}
+                  className="text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {n.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#contact"
+            className="hidden text-xs uppercase tracking-[0.22em] text-accent md:inline"
+          >
+            Join
+          </a>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section id="top" className="relative h-screen min-h-[640px] w-full overflow-hidden">
+        <img
+          src={hero}
+          alt="Deep space galaxy"
+          width={1920}
+          height={1280}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col justify-end px-6 pb-16 md:px-10 md:pb-24">
+          <p className="mb-6 text-xs uppercase tracking-[0.32em] text-accent">
+            Est. 1962 · Public Astronomy
+          </p>
+          <h1 className="max-w-4xl text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
+            Meridian Astronomical Society
+          </h1>
+          <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
+            Observing the deep sky and sharing it with the public since a time before digital
+            imaging.
+          </p>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="border-t border-border py-24 md:py-40">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
+          <FadeIn className="md:col-span-6">
+            <div
+              className="aspect-[4/5] w-full overflow-hidden"
+              style={{ backgroundColor: "#1a1a2e" }}
+            >
+              <img
+                src={about}
+                alt="Observatory dome under the stars"
+                width={1200}
+                height={1500}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </FadeIn>
+          <FadeIn className="md:col-span-6 md:pl-8 lg:pl-16">
+            <p className="text-xs uppercase tracking-[0.28em] text-accent">About</p>
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl">
+              A quiet devotion to the night sky.
+            </h2>
+            <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
+              <p>
+                Founded by a small group of amateur astronomers in the high desert, Meridian has
+                grown into a working observatory, a research collaboration, and a public program
+                that welcomes thousands of visitors each year.
+              </p>
+              <p>
+                Our members contribute to occultation timing, variable-star photometry, and
+                asteroid recovery campaigns. We publish annual observing reports and maintain three
+                dark-sky sites open to the public on scheduled nights.
+              </p>
+              <p>
+                We believe that careful observation, patiently done, remains one of the most
+                rewarding things a person can do with their evenings.
+              </p>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* News */}
+      <section id="news" className="border-t border-border py-24 md:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="text-xs uppercase tracking-[0.28em] text-accent">News & Events</p>
+              <h2 className="mt-4 text-4xl md:text-5xl">Recent from the observatory.</h2>
+            </div>
+            <a
+              href="#"
+              className="text-xs uppercase tracking-[0.22em] text-muted-foreground hover:text-foreground"
+            >
+              All updates →
+            </a>
+          </div>
+          <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
+            {NEWS.map((item) => (
+              <FadeIn key={item.title}>
+                <article className="group">
+                  <div
+                    className="aspect-[4/3] w-full overflow-hidden"
+                    style={{ backgroundColor: "#1a1a2e" }}
+                  >
+                    <img
+                      src={item.img}
+                      alt=""
+                      width={1200}
+                      height={900}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <p className="mt-6 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                    {item.date}
+                  </p>
+                  <h3 className="mt-3 text-2xl leading-tight md:text-[1.6rem]">{item.title}</h3>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section id="gallery" className="border-t border-border py-24 md:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <p className="text-xs uppercase tracking-[0.28em] text-accent">Gallery</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Images from our members.</h2>
+        </div>
+        <div className="mx-auto mt-16 grid max-w-[1400px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
+          {GALLERY.map((img) => (
+            <button
+              key={img.src}
+              type="button"
+              onClick={() => setLightbox(img.src)}
+              className={`group aspect-square overflow-hidden ${img.span ?? ""}`}
+              style={{ backgroundColor: "#1a1a2e" }}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                loading="lazy"
+                className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
+              />
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Presentations */}
+      <section id="presentations" className="border-t border-border py-24 md:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <p className="text-xs uppercase tracking-[0.28em] text-accent">Presentations</p>
+              <h2 className="mt-4 text-4xl md:text-5xl">Recorded lectures.</h2>
+              <p className="mt-6 text-muted-foreground">
+                Selected talks from our monthly meetings, guest lectures, and public observing
+                nights.
+              </p>
+            </div>
+            <FadeIn className="md:col-span-8">
+              <div
+                className="aspect-video w-full overflow-hidden border border-border"
+                style={{ backgroundColor: "#1a1a2e" }}
+              >
+                <iframe
+                  className="h-full w-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Meridian Astronomical Society — Featured Presentation"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section id="team" className="border-t border-border py-24 md:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <p className="text-xs uppercase tracking-[0.28em] text-accent">Team</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">People behind the work.</h2>
+          <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
+            {TEAM.map((p) => (
+              <FadeIn key={p.name}>
+                <div>
+                  <div
+                    className="aspect-[4/5] w-full"
+                    style={{ backgroundColor: "#1a1a2e" }}
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-5 text-xl">{p.name}</h3>
+                  <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                    {p.role}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="border-t border-border py-24 md:py-32">
+        <div className="mx-auto max-w-2xl px-6 md:px-10">
+          <p className="text-xs uppercase tracking-[0.28em] text-accent">Contact</p>
+          <h2 className="mt-4 text-4xl md:text-5xl">Get in touch.</h2>
+          <p className="mt-6 text-muted-foreground">
+            Questions about membership, observing nights, or research collaborations.
+          </p>
+          <form
+            className="mt-12 space-y-8"
+            onSubmit={(e) => {
+              e.preventDefault();
+              (e.currentTarget as HTMLFormElement).reset();
+            }}
+          >
+            {[
+              { id: "name", label: "Name", type: "text" },
+              { id: "email", label: "Email", type: "email" },
+              { id: "subject", label: "Subject", type: "text" },
+            ].map((f) => (
+              <div key={f.id}>
+                <label
+                  htmlFor={f.id}
+                  className="block text-xs uppercase tracking-[0.22em] text-muted-foreground"
+                >
+                  {f.label}
+                </label>
+                <input
+                  id={f.id}
+                  type={f.type}
+                  required
+                  className="mt-3 w-full border-0 border-b border-border bg-transparent py-3 text-base text-foreground outline-none focus:border-accent"
+                />
+              </div>
+            ))}
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-xs uppercase tracking-[0.22em] text-muted-foreground"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                rows={5}
+                required
+                className="mt-3 w-full resize-none border-0 border-b border-border bg-transparent py-3 text-base text-foreground outline-none focus:border-accent"
+              />
+            </div>
+            <button
+              type="submit"
+              className="text-xs uppercase tracking-[0.28em] text-accent transition-opacity hover:opacity-70"
+            >
+              Send message →
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border py-10">
+        <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.22em] text-muted-foreground md:px-10">
+          <span>© {new Date().getFullYear()} Meridian Astronomical Society</span>
+          <span>Dark-sky preserve · High desert</span>
+        </div>
+      </footer>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4 md:p-10"
+          onClick={() => setLightbox(null)}
+        >
+          <img
+            src={lightbox}
+            alt=""
+            className="max-h-full max-w-full object-contain"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            className="absolute right-6 top-6 text-xs uppercase tracking-[0.28em] text-foreground hover:text-accent"
+          >
+            Close ×
+          </button>
+        </div>
+      )}
     </div>
   );
 }
