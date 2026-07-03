@@ -176,7 +176,7 @@ function Home() {
           <p className="mb-6 text-xs uppercase tracking-[0.32em] text-accent">
             Est. 1962 · Public Astronomy
           </p>
-          <h1 className="max-w-4xl text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
+          <h1 className="max-w-4xl text-4xl leading-[0.95] md:text-6xl lg:text-7xl">
             Meridian Astronomical Society
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
