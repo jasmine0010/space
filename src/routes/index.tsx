@@ -99,7 +99,7 @@ function SectionHeader({
     <div className="flex flex-wrap items-end justify-between gap-6">
       <div>
         <p className="text-xs uppercase tracking-[0.28em] text-accent">{eyebrow}</p>
-        <h2 className="mt-4 text-4xl md:text-5xl">{title}</h2>
+        <h2 className="mt-4 text-3xl md:text-4xl">{title}</h2>
       </div>
       {linkLabel && href && <ArrowLink href={href}>{linkLabel}</ArrowLink>}
     </div>
@@ -176,7 +176,7 @@ function Home() {
           <p className="mb-6 text-xs uppercase tracking-[0.32em] text-accent">
             Est. 1962 · Public Astronomy
           </p>
-          <h1 className="max-w-4xl text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
+          <h1 className="max-w-4xl text-4xl leading-[0.95] md:text-6xl lg:text-7xl">
             Meridian Astronomical Society
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
@@ -239,7 +239,7 @@ function Home() {
           </FadeIn>
           <FadeIn className="md:col-span-6 md:pl-8 lg:pl-16">
             <p className="text-xs uppercase tracking-[0.28em] text-accent">About</p>
-            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl">
               A quiet devotion to the night sky.
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -299,7 +299,7 @@ function Home() {
                   <p className="mt-6 text-xs uppercase tracking-[0.22em] text-muted-foreground">
                     {item.date} · {item.read}
                   </p>
-                  <h3 className="mt-3 text-2xl leading-tight transition-colors group-hover:text-accent md:text-[1.6rem]">
+                  <h3 className="mt-3 text-xl leading-tight transition-colors group-hover:text-accent md:text-2xl">
                     {item.title}
                   </h3>
                 </article>
@@ -377,7 +377,7 @@ function Home() {
       <section id="team" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Team</p>
-          <h2 className="mt-4 text-4xl md:text-5xl">People behind the work.</h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">People behind the work.</h2>
           <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
             {TEAM.map((p) => (
               <FadeIn key={p.name}>
@@ -402,7 +402,7 @@ function Home() {
       <section id="contact" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-2xl px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Contact</p>
-          <h2 className="mt-4 text-4xl md:text-5xl">Get in touch.</h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">Get in touch.</h2>
           <p className="mt-6 text-muted-foreground">
             Questions about membership, observing nights, or research collaborations.
           </p>
