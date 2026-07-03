@@ -239,7 +239,7 @@ function Home() {
           </FadeIn>
           <FadeIn className="md:col-span-6 md:pl-8 lg:pl-16">
             <p className="text-xs uppercase tracking-[0.28em] text-accent">About</p>
-            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl">
+            <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl">
               A quiet devotion to the night sky.
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
