@@ -402,7 +402,7 @@ function Home() {
       <section id="contact" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-2xl px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Contact</p>
-          <h2 className="mt-4 text-4xl md:text-5xl">Get in touch.</h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">Get in touch.</h2>
           <p className="mt-6 text-muted-foreground">
             Questions about membership, observing nights, or research collaborations.
           </p>
