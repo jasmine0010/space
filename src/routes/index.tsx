@@ -299,7 +299,7 @@ function Home() {
                   <p className="mt-6 text-xs uppercase tracking-[0.22em] text-muted-foreground">
                     {item.date} · {item.read}
                   </p>
-                  <h3 className="mt-3 text-2xl leading-tight transition-colors group-hover:text-accent md:text-[1.6rem]">
+                  <h3 className="mt-3 text-xl leading-tight transition-colors group-hover:text-accent md:text-2xl">
                     {item.title}
                   </h3>
                 </article>
