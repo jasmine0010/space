@@ -377,7 +377,7 @@ function Home() {
       <section id="team" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Team</p>
-          <h2 className="mt-4 text-4xl md:text-5xl">People behind the work.</h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">People behind the work.</h2>
           <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
             {TEAM.map((p) => (
               <FadeIn key={p.name}>
