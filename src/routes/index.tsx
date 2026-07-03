@@ -99,7 +99,7 @@ function SectionHeader({
     <div className="flex flex-wrap items-end justify-between gap-6">
       <div>
         <p className="text-xs uppercase tracking-[0.28em] text-accent">{eyebrow}</p>
-        <h2 className="mt-4 text-4xl md:text-5xl">{title}</h2>
+        <h2 className="mt-4 text-3xl md:text-4xl">{title}</h2>
       </div>
       {linkLabel && href && <ArrowLink href={href}>{linkLabel}</ArrowLink>}
     </div>
