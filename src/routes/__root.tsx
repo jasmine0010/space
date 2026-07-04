@@ -68,13 +68,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Meridian Astronomical Society — Observing the Universe" },
+      { title: "Space Outreach Initiative — Observing the Universe" },
       {
         name: "description",
         content:
           "An independent astronomy organization dedicated to research, outreach, and public observing programs across the deep sky.",
       },
-      { property: "og:title", content: "Meridian Astronomical Society" },
+      { property: "og:title", content: "Space Outreach Initiative" },
       {
         property: "og:description",
         content: "Research, outreach, and observing programs across the deep sky.",
