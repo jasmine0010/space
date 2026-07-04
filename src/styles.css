@@ -16,7 +16,7 @@
   --color-input: var(--border);
   --color-ring: var(--accent);
   --color-placeholder: var(--placeholder);
-  --font-serif: "DM Serif Text", ui-serif, Georgia, serif;
+  --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --radius: 0;
