@@ -16,7 +16,7 @@
   --color-input: var(--border);
   --color-ring: var(--accent);
   --color-placeholder: var(--placeholder);
-  --font-serif: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-serif: "DM Serif Text", ui-serif, Georgia, serif;
   --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --radius: 0;
@@ -46,16 +46,13 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-    letter-spacing: -0.005em;
     font-feature-settings: "ss01", "cv11";
   }
   h1, h2, h3, h4 {
     font-family: var(--font-serif);
     font-weight: 400;
-    letter-spacing: -0.03em;
-    line-height: 1.0;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
   }
   ::selection {
     background: var(--color-accent);
@@ -92,5 +89,4 @@
 /* Small technical/eyebrow text — any uppercase element with wide tracking uses DM Mono */
 .uppercase[class*="tracking-["] {
   font-family: var(--font-mono);
-  font-weight: 500;
 }
