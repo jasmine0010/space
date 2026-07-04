@@ -138,7 +138,7 @@ function Home() {
       >
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
           <a href="#top" className="text-sm uppercase tracking-[0.28em]">
-            Meridian
+            Space Outreach Initiative
           </a>
           <ul className="hidden gap-8 md:flex">
             {NAV.map((n) => (
@@ -177,7 +177,7 @@ function Home() {
             Est. 1962 · Public Astronomy
           </p>
           <h1 className="max-w-4xl text-4xl leading-[0.95] md:text-6xl lg:text-7xl">
-            Meridian Astronomical Society
+            Space Outreach Initiative
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
             Observing the deep sky and sharing it with the public since a time before digital
@@ -363,7 +363,7 @@ function Home() {
                 <iframe
                   className="h-full w-full"
                   src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Meridian Astronomical Society — Featured Presentation"
+                  title="Space Outreach Initiative — Featured Presentation"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 />
@@ -461,7 +461,7 @@ function Home() {
       {/* Footer */}
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.22em] text-muted-foreground md:px-10">
-          <span>© {new Date().getFullYear()} Meridian Astronomical Society</span>
+          <span>© {new Date().getFullYear()} Space Outreach Initiative</span>
           <span>Dark-sky preserve · High desert</span>
         </div>
       </footer>
