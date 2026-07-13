@@ -329,7 +329,7 @@ function Home() {
               key={img.src}
               type="button"
               onClick={() => setLightbox(img.src)}
-              className={`group aspect-square overflow-hidden ${img.span ?? ""}`}
+              className={`placeholder-frame group aspect-square overflow-hidden ${img.span ?? ""}`}
               style={{ backgroundColor: "#1a1a2e" }}
             >
               <img
