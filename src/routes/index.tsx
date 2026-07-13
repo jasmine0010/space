@@ -193,7 +193,7 @@ function Home() {
           <div className="mt-8">
             <a
               href="#about"
-              className="inline-flex items-center border-[1.5px] border-white/30 bg-transparent px-4 py-2 text-base text-white/80 transition-colors hover:border-white/60 hover:text-white md:text-lg"
+              className="inline-flex items-center border-[1.5px] border-white/30 bg-transparent px-4 py-2 text-sm text-white/80 transition-colors hover:border-white/60 hover:text-white md:text-base"
             >
               About us
             </a>
