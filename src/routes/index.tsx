@@ -162,7 +162,7 @@ function Home() {
             href={DISCORD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-2 border border-white/30 bg-transparent px-4 py-2 text-sm text-white/80 transition-colors hover:border-white/60 hover:text-white md:inline-flex"
+            className="hidden items-center gap-2 px-4 py-2 text-sm text-white/80 transition-colors hover:text-white md:inline-flex"
           >
             <DiscordIcon className="h-4 w-4" />
             Discord
@@ -358,9 +358,9 @@ function Home() {
             href={DISCORD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 flex items-center gap-4 border border-border bg-transparent p-5 transition-colors hover:border-white/30"
+            className="mt-10 flex items-center gap-4 bg-transparent p-5 transition-colors"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 text-foreground">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-foreground">
               <DiscordIcon className="h-5 w-5" />
             </span>
             <div>
