@@ -41,9 +41,9 @@ const NAV = [
 ];
 
 const HERO_FEATURES = [
-  { label: "Deep Sky Survey", title: "Andromeda Field Report", href: "#news" },
-  { label: "Public Observing", title: "Perseid Watch, August 12", href: "#news" },
-  { label: "Instrumentation", title: "New 24-inch Ritchey-Chrétien", href: "#news" },
+  { label: "Deep Sky Survey", title: "[Placeholder] Andromeda Field Report", href: "#news" },
+  { label: "Public Observing", title: "[Placeholder] Perseid Watch, August 12", href: "#news" },
+  { label: "Instrumentation", title: "[Placeholder] New 24-inch Ritchey-Chrétien", href: "#news" },
 ];
 
 const NEWS = [
