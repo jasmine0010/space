@@ -173,7 +173,7 @@ function Home() {
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 pt-40 md:px-10 md:pb-14">
-          <p className="mb-6 text-xs uppercase tracking-[0.32em] text-accent">
+          <p className="mb-6 text-xs uppercase tracking-[0.32em] text-accent !font-sans">
             Est. 1962 · Public Astronomy
           </p>
           <h1 className="max-w-4xl text-4xl leading-[0.95] md:text-6xl lg:text-7xl">
