@@ -279,7 +279,7 @@ function Home() {
               <FadeIn key={item.title}>
                 <article className="group">
                   <div
-                    className="relative aspect-[4/3] w-full overflow-hidden"
+                    className="placeholder-frame relative aspect-[4/3] w-full overflow-hidden"
                     style={{ backgroundColor: "#1a1a2e" }}
                   >
                     <img
@@ -300,9 +300,10 @@ function Home() {
                     </span>
                   </div>
                   <p className="mt-6 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    {item.date} · {item.read}
+                    <PlaceholderBadge className="mr-2" /> {item.date} · {item.read}
                   </p>
                   <h3 className="mt-3 text-xl leading-tight transition-colors group-hover:text-accent md:text-2xl">
+                    <PlaceholderBadge className="mr-2 align-middle" />
                     {item.title}
                   </h3>
                 </article>
