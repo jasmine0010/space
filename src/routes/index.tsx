@@ -327,6 +327,7 @@ function Home() {
             title="Images from our members."
             linkLabel="Full archive"
             href="#gallery"
+            placeholder
           />
         </div>
         <div className="mx-auto mt-16 grid max-w-[1400px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
