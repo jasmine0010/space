@@ -239,20 +239,24 @@ function Home() {
           <FadeIn className="md:col-span-6 md:pl-8 lg:pl-16">
             <p className="text-xs uppercase tracking-[0.28em] text-accent">About</p>
             <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl">
+              <PlaceholderBadge className="mr-2 align-middle" />
               A quiet devotion to the night sky.
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
+                <PlaceholderBadge className="mr-2 align-middle" />
                 Founded by a small group of amateur astronomers in the high desert, Meridian has
                 grown into a working observatory, a research collaboration, and a public program
                 that welcomes thousands of visitors each year.
               </p>
               <p>
+                <PlaceholderBadge className="mr-2 align-middle" />
                 Our members contribute to occultation timing, variable-star photometry, and
                 asteroid recovery campaigns. We publish annual observing reports and maintain three
                 dark-sky sites open to the public on scheduled nights.
               </p>
               <p>
+                <PlaceholderBadge className="mr-2 align-middle" />
                 We believe that careful observation, patiently done, remains one of the most
                 rewarding things a person can do with their evenings.
               </p>
