@@ -409,7 +409,15 @@ function Home() {
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.22em] text-muted-foreground md:px-10">
           <span>© {new Date().getFullYear()} Space Outreach Initiative</span>
-          <span>Dark-sky preserve · High desert</span>
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+          >
+            <DiscordIcon className="h-4 w-4" />
+            Community
+          </a>
         </div>
       </footer>
 
