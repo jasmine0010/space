@@ -228,7 +228,7 @@ function Home() {
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
           <FadeIn className="md:col-span-6">
             <div
-              className="aspect-[4/5] w-full overflow-hidden"
+              className="placeholder-frame aspect-[4/5] w-full overflow-hidden"
               style={{ backgroundColor: "#1a1a2e" }}
             >
               <img
