@@ -278,6 +278,7 @@ function Home() {
             title="Recent from the observatory."
             linkLabel="Recently published"
             href="#news"
+            placeholder
           />
           <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
             {NEWS.map((item) => (
