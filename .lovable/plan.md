@@ -1,19 +1,12 @@
-The hero "About us" button currently uses a solid plasma-blue background (`bg-accent`), which draws too much attention against the dark space image.
+Add the Discord server link in two obvious places while keeping the current dark/technical style.
 
-### Proposed change
-Replace the solid accent button with a subdued, institutional treatment that sits quietly on the hero:
+1. **Top navigation** — Replace the current plain "Join" text link on the right side of the sticky header with a Discord-branded button. Use the Discord icon + "Discord" label so it reads immediately as the community entry point.
+2. **Footer** — Add a small social row that includes the Discord link alongside a short "Community" label, so the link is reachable from every page.
+3. **Contact section** — Optionally add a second contact path card/button reading "Join us on Discord" to make the link even more obvious for visitors scanning the page.
 
-- **Visual style:** transparent background with a thin white/soft border (`border-white/30`) and white text, matching the feature-strip arrow circles and the overall dark, technical aesthetic.
-- **Typography:** keep the small uppercase tracked label in DM Mono, same as the current button.
-- **Hover:** slightly brighten the border and text (`hover:border-white/60 hover:text-accent`) for feedback without adding a new loud color.
-- **Shape:** keep the same inline-flex layout with the `ArrowUpRight` icon.
-
-This makes the CTA feel like part of the hero's information layer rather than a separate, high-conversion marketing button.
-
-### Alternative (if you want it even quieter)
-Reduce it to a minimal text link: white text + arrow, no border or background, with only an underline or color shift on hover.
-
-### Files to edit
-- `src/routes/index.tsx` — restyle the hero "About us" anchor around line 182.
-
-No new dependencies or sections needed.
+Technical details:
+- Add `lucide-react` icon or inline SVG for the Discord mark.
+- Link opens `https://discord.gg/lovable-dev` in a new tab with `rel="noopener noreferrer"`.
+- Keep the same border/ghost styling as the hero "About us" button for the nav Discord button so it blends with the dark header.
+- Footer link uses the existing muted/uppercase footer style.
+- No new dependencies required.
