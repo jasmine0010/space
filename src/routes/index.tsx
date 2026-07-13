@@ -2,87 +2,82 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, FileText, Calendar } from "lucide-react";
 
-import hero from "@/assets/hero.jpg";
-import about from "@/assets/about.jpg";
-import g1 from "@/assets/g1.jpg";
-import g2 from "@/assets/g2.jpg";
-import g3 from "@/assets/g3.jpg";
-import g4 from "@/assets/g4.jpg";
-import g5 from "@/assets/g5.jpg";
-import n1 from "@/assets/n1.jpg";
-import n2 from "@/assets/n2.jpg";
-import n3 from "@/assets/n3.jpg";
 import { FadeIn } from "@/components/FadeIn";
 import { ArrowLink } from "@/components/ArrowLink";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    links: [
-      { rel: "canonical", href: "/" },
-      { rel: "preload", as: "image", href: hero },
-    ],
-    meta: [
-      { property: "og:image", content: hero },
-      { name: "twitter:image", content: hero },
-    ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });
 
 const NAV = [
-  { id: "about", label: "About" },
-  { id: "news", label: "News" },
-  { id: "gallery", label: "Gallery" },
-  { id: "presentations", label: "Presentations" },
-  { id: "observing", label: "Observing" },
-  { id: "team", label: "Team" },
-  { id: "contact", label: "Contact" },
+  { id: "about", label: "Aboutway" },
+  { id: "news", label: "Ewsnay" },
+  { id: "gallery", label: "Allerygay" },
+  { id: "presentations", label: "Esentationspray" },
+  { id: "observing", label: "Observingway" },
+  { id: "team", label: "Eamtay" },
+  { id: "contact", label: "Ontactcay" },
 ];
 
 const HERO_FEATURES = [
-  { label: "Deep Sky Survey", title: "Andromeda Field Report", href: "#news" },
-  { label: "Public Observing", title: "Perseid Watch, August 12", href: "#news" },
-  { label: "Instrumentation", title: "New 24-inch Ritchey-Chrétien", href: "#news" },
+  { label: "Eepday Yskay Urveysay", title: "Andromedaway Ieldfay Eportray (placeholder)", href: "#news" },
+  { label: "Ublicpay Observingway", title: "Erseidpay Atchway, Augustway 12 (placeholder)", href: "#news" },
+  { label: "Instrumentationway", title: "Ewnay 24-inchway Itcheyray-Étienchray (placeholder)", href: "#news" },
 ];
 
 const NEWS = [
   {
-    img: n1,
-    tag: "Article",
-    read: "6 min read",
-    date: "March 14, 2026",
-    title: "Annual Deep Sky Symposium Convenes in Flagstaff",
+    tag: "Articleway",
+    read: "6 inmay eadray",
+    date: "Archmay 14, 2026",
+    title: "Annualway Eepday Yskay Ymposiumsay Onvenescay inway Agstafflay (placeholder)",
   },
   {
-    img: n2,
-    tag: "Event",
-    read: "3 min read",
-    date: "February 02, 2026",
-    title: "New Radio Array Joins the Meridian Observing Network",
+    tag: "Eventway",
+    read: "3 inmay eadray",
+    date: "Ebruaryfay 02, 2026",
+    title: "Ewnay Adioray Arrayway Oinsjay ethay Eridianmay Observingway Etworknay (placeholder)",
   },
   {
-    img: n3,
-    tag: "Article",
-    read: "4 min read",
-    date: "January 21, 2026",
-    title: "Public Observing Night Draws Record Attendance",
+    tag: "Articleway",
+    read: "4 inmay eadray",
+    date: "Anuaryjay 21, 2026",
+    title: "Ublicpay Observingway Ightnay Awsdray Ecordray Attendanceway (placeholder)",
   },
 ];
 
 const GALLERY = [
-  { src: g1, alt: "Emission nebula", span: "md:col-span-2" },
-  { src: g2, alt: "Spiral galaxy", span: "" },
-  { src: g3, alt: "Saturn and its rings", span: "" },
-  { src: g4, alt: "Milky Way over mountains", span: "md:col-span-2" },
-  { src: g5, alt: "Cosmic cliffs" },
+  { id: "g1", alt: "Aceholderplay imageway 1", span: "md:col-span-2" },
+  { id: "g2", alt: "Aceholderplay imageway 2", span: "" },
+  { id: "g3", alt: "Aceholderplay imageway 3", span: "" },
+  { id: "g4", alt: "Aceholderplay imageway 4", span: "md:col-span-2" },
+  { id: "g5", alt: "Aceholderplay imageway 5", span: "" },
 ];
 
 const TEAM = [
-  { name: "Dr. Elena Vasquez", role: "Director of Research" },
-  { name: "Marcus Chen", role: "Chief Observer" },
-  { name: "Amara Okonkwo", role: "Outreach Lead" },
-  { name: "Dr. Rafael Silva", role: "Instrumentation" },
+  { name: "Rday. Elenaway Asquezvay (placeholder)", role: "Irectorday ofway Esearchray" },
+  { name: "Arcusmay Enchay (placeholder)", role: "Iefchay Observerway" },
+  { name: "Amaraway Okonkwoway (placeholder)", role: "Outreachway Eadlay" },
+  { name: "Rday. Afaelray Ilvasay (placeholder)", role: "Instrumentationway" },
 ];
+
+const PLACEHOLDER_BG = "#2a2a35";
+
+function Placeholder({ label, className = "" }: { label?: string; className?: string }) {
+  return (
+    <div
+      className={`flex h-full w-full items-center justify-center ${className}`}
+      style={{ backgroundColor: PLACEHOLDER_BG }}
+    >
+      <span className="text-xs uppercase tracking-[0.28em] text-white/50">
+        {label ?? "Aceholderplay"}
+      </span>
+    </div>
+  );
+}
 
 function SectionHeader({
   eyebrow,
@@ -138,7 +133,7 @@ function Home() {
       >
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
           <a href="#top" className="flex items-center">
-            <img src="/logo.svg" alt="Space Outreach Initiative" className="h-11 w-11 text-white" />
+            <img src="/logo.svg" alt="Aceholderplay ogolay" className="h-11 w-11 text-white" />
           </a>
           <ul className="hidden gap-8 md:flex">
             {NAV.map((n) => (
@@ -156,29 +151,23 @@ function Home() {
             href="#contact"
             className="hidden text-xs uppercase tracking-[0.22em] text-accent md:inline"
           >
-            Join
+            Oinjay
           </a>
         </nav>
       </header>
 
       {/* Hero */}
       <section id="top" className="relative min-h-screen w-full overflow-hidden">
-        <img
-          src={hero}
-          alt="Deep space galaxy"
-          width={1920}
-          height={1280}
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        <Placeholder label="Erohay imageway aceholderplay" />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 pt-40 md:px-10 md:pb-14">
           <h1 className="max-w-4xl text-4xl leading-[0.95] md:text-6xl lg:text-7xl">
-            Space Outreach Initiative
+            Acespay Outreachway Initiativeway (placeholder)
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-            Observing the deep sky and sharing it with the public since a time before digital
-            imaging.
+            Observingway ethay eepday yskay andway aringshay itway ithway ethay ublicpay incesay
+            away imetay eforebay igitalday imagingway. (placeholder)
           </p>
 
           <div className="mt-8">
@@ -187,7 +176,7 @@ function Home() {
               className="group inline-flex items-center gap-3 bg-accent px-6 py-3 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-opacity hover:opacity-90"
             >
               <ArrowUpRight size={14} strokeWidth={2} />
-              About us
+              Aboutway usway
             </a>
           </div>
 
@@ -220,39 +209,31 @@ function Home() {
       <section id="about" className="border-t border-border py-24 md:py-40">
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
           <FadeIn className="md:col-span-6">
-            <div
-              className="aspect-[4/5] w-full overflow-hidden"
-              style={{ backgroundColor: "#1a1a2e" }}
-            >
-              <img
-                src={about}
-                alt="Observatory dome under the stars"
-                width={1200}
-                height={1500}
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
+            <div className="aspect-[4/5] w-full overflow-hidden">
+              <Placeholder label="Aboutway imageway aceholderplay" />
             </div>
           </FadeIn>
           <FadeIn className="md:col-span-6 md:pl-8 lg:pl-16">
-            <p className="text-xs uppercase tracking-[0.28em] text-accent">About</p>
+            <p className="text-xs uppercase tracking-[0.28em] text-accent">Aboutway</p>
             <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl">
-              A quiet devotion to the night sky.
+              Away uietqay evotionday otay ethay ightnay yskay. (placeholder)
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                Founded by a small group of amateur astronomers in the high desert, Meridian has
-                grown into a working observatory, a research collaboration, and a public program
-                that welcomes thousands of visitors each year.
+                Oundedfay ybay away allsmay oupgray ofway amateurway astronomersway inway ethay
+                ighhay esertday, Eridianmay ashay owngray intoway away orkingway observatoryway,
+                away esearchray ollaborationcay, andway away ublicpay ogrampray atthay elcomesway
+                ousandsthay ofway isitorsvay eachway earyay. (placeholder)
               </p>
               <p>
-                Our members contribute to occultation timing, variable-star photometry, and
-                asteroid recovery campaigns. We publish annual observing reports and maintain three
-                dark-sky sites open to the public on scheduled nights.
+                Ourway embersmay ontributecay otay occultationway imingtay, ariablevay-arstay
+                otometryphay, andway asteroidway ecoveryray ampaignscay. Eway ublishpay annualway
+                observingway eportsray. (placeholder)
               </p>
               <p>
-                We believe that careful observation, patiently done, remains one of the most
-                rewarding things a person can do with their evenings.
+                Eway elievebay atthay arefulcay observationway, atientlypay oneday, emainsray
+                oneway ofway ethay ostmay ewardingray ingsthay away ersonpay ancay oday ithway
+                eirthay eveningsway. (placeholder)
               </p>
             </div>
           </FadeIn>
@@ -263,29 +244,19 @@ function Home() {
       <section id="news" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <SectionHeader
-            eyebrow="News & Events"
-            title="Recent from the observatory."
-            linkLabel="Recently published"
+            eyebrow="Ewsnay & Eventsway"
+            title="Ecentray omfray ethay observatoryway. (placeholder)"
+            linkLabel="Ecentlyray ublishedpay"
             href="#news"
           />
           <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
             {NEWS.map((item) => (
               <FadeIn key={item.title}>
                 <article className="group">
-                  <div
-                    className="relative aspect-[4/3] w-full overflow-hidden"
-                    style={{ backgroundColor: "#1a1a2e" }}
-                  >
-                    <img
-                      src={item.img}
-                      alt=""
-                      width={1200}
-                      height={900}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Placeholder label="Ewsnay imageway" />
                     <span className="chip absolute left-4 top-4">
-                      {item.tag === "Event" ? (
+                      {item.tag === "Eventway" ? (
                         <Calendar size={12} strokeWidth={1.75} />
                       ) : (
                         <FileText size={12} strokeWidth={1.75} />
@@ -310,27 +281,21 @@ function Home() {
       <section id="gallery" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <SectionHeader
-            eyebrow="Gallery"
-            title="Images from our members."
-            linkLabel="Full archive"
+            eyebrow="Allerygay"
+            title="Imagesway omfray ourway embersmay. (placeholder)"
+            linkLabel="Ullfay archiveway"
             href="#gallery"
           />
         </div>
         <div className="mx-auto mt-16 grid max-w-[1400px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
           {GALLERY.map((img) => (
             <button
-              key={img.src}
+              key={img.id}
               type="button"
-              onClick={() => setLightbox(img.src)}
+              onClick={() => setLightbox(img.id)}
               className={`group aspect-square overflow-hidden ${img.span ?? ""}`}
-              style={{ backgroundColor: "#1a1a2e" }}
             >
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-90"
-              />
+              <Placeholder label={img.alt} />
             </button>
           ))}
         </div>
@@ -340,30 +305,21 @@ function Home() {
       <section id="presentations" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <SectionHeader
-            eyebrow="Presentations"
-            title="Recorded lectures."
-            linkLabel="All talks"
+            eyebrow="Esentationspray"
+            title="Ecordedray ectureslay. (placeholder)"
+            linkLabel="Allway alkstay"
             href="#presentations"
           />
           <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
               <p className="text-muted-foreground">
-                Selected talks from our monthly meetings, guest lectures, and public observing
-                nights.
+                Electedsay alkstay omfray ourway onthlymay eetingsmay, uestgay ectureslay, andway
+                ublicpay observingway ightsnay. (placeholder)
               </p>
             </div>
             <FadeIn className="md:col-span-8">
-              <div
-                className="aspect-video w-full overflow-hidden border border-border"
-                style={{ backgroundColor: "#1a1a2e" }}
-              >
-                <iframe
-                  className="h-full w-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Space Outreach Initiative — Featured Presentation"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+              <div className="aspect-video w-full overflow-hidden border border-border">
+                <Placeholder label="Ideovay aceholderplay" />
               </div>
             </FadeIn>
           </div>
@@ -373,17 +329,15 @@ function Home() {
       {/* Team */}
       <section id="team" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <p className="text-xs uppercase tracking-[0.28em] text-accent">Team</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">People behind the work.</h2>
+          <p className="text-xs uppercase tracking-[0.28em] text-accent">Eamtay</p>
+          <h2 className="mt-4 text-3xl md:text-4xl">Eoplepay ehindbay ethay orkway. (placeholder)</h2>
           <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
             {TEAM.map((p) => (
               <FadeIn key={p.name}>
                 <div>
-                  <div
-                    className="aspect-[4/5] w-full"
-                    style={{ backgroundColor: "#1a1a2e" }}
-                    aria-hidden="true"
-                  />
+                  <div className="aspect-[4/5] w-full">
+                    <Placeholder label="Ortraitpay" />
+                  </div>
                   <h3 className="mt-5 text-xl">{p.name}</h3>
                   <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
                     {p.role}
@@ -398,10 +352,11 @@ function Home() {
       {/* Contact */}
       <section id="contact" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-2xl px-6 md:px-10">
-          <p className="text-xs uppercase tracking-[0.28em] text-accent">Contact</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">Get in touch.</h2>
+          <p className="text-xs uppercase tracking-[0.28em] text-accent">Ontactcay</p>
+          <h2 className="mt-4 text-3xl md:text-4xl">Etgay inway ouchtay. (placeholder)</h2>
           <p className="mt-6 text-muted-foreground">
-            Questions about membership, observing nights, or research collaborations.
+            Uestionsqay aboutway embershipmay, observingway ightsnay, orway esearchray
+            ollaborationscay. (placeholder)
           </p>
           <form
             className="mt-12 space-y-8"
@@ -411,9 +366,9 @@ function Home() {
             }}
           >
             {[
-              { id: "name", label: "Name", type: "text" },
-              { id: "email", label: "Email", type: "email" },
-              { id: "subject", label: "Subject", type: "text" },
+              { id: "name", label: "Amenay", type: "text" },
+              { id: "email", label: "Emailway", type: "email" },
+              { id: "subject", label: "Ubjectsay", type: "text" },
             ].map((f) => (
               <div key={f.id}>
                 <label
@@ -435,7 +390,7 @@ function Home() {
                 htmlFor="message"
                 className="block text-xs uppercase tracking-[0.22em] text-muted-foreground"
               >
-                Message
+                Essagemay
               </label>
               <textarea
                 id="message"
@@ -448,7 +403,7 @@ function Home() {
               type="submit"
               className="inline-flex items-center gap-3 bg-accent px-6 py-3 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-opacity hover:opacity-90"
             >
-              Send message
+              Endsay essagemay
               <ArrowUpRight size={14} strokeWidth={2} />
             </button>
           </form>
@@ -458,8 +413,8 @@ function Home() {
       {/* Footer */}
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.22em] text-muted-foreground md:px-10">
-          <span>© {new Date().getFullYear()} Space Outreach Initiative</span>
-          <span>Dark-sky preserve · High desert</span>
+          <span>© {new Date().getFullYear()} Acespay Outreachway Initiativeway (placeholder)</span>
+          <span>Arkday-yskay eservepray · Ighhay esertday (placeholder)</span>
         </div>
       </footer>
 
@@ -471,18 +426,18 @@ function Home() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-background/95 p-4 md:p-10"
           onClick={() => setLightbox(null)}
         >
-          <img
-            src={lightbox}
-            alt=""
-            className="max-h-full max-w-full object-contain"
+          <div
+            className="flex h-[80vh] w-[80vw] items-center justify-center"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            <Placeholder label={`Aceholderplay ${lightbox}`} />
+          </div>
           <button
             type="button"
             onClick={() => setLightbox(null)}
             className="absolute right-6 top-6 text-xs uppercase tracking-[0.28em] text-foreground hover:text-accent"
           >
-            Close ×
+            Oseclay ×
           </button>
         </div>
       )}
