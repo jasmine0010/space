@@ -182,7 +182,7 @@ function Home() {
           <div className="mt-8">
             <a
               href="#about"
-              className="group inline-flex items-center gap-3 bg-accent px-6 py-3 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-opacity hover:opacity-90"
+              className="group inline-flex items-center gap-3 border border-white/30 bg-transparent px-6 py-3 text-xs uppercase tracking-[0.24em] text-white transition-colors hover:border-white/60 hover:text-accent"
             >
               <ArrowUpRight size={14} strokeWidth={2} />
               About us
