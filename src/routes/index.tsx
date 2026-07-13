@@ -143,7 +143,7 @@ function Home() {
               <li key={n.id}>
                 <a
                   href={`#${n.id}`}
-                  className="text-xs uppercase tracking-[0.22em] text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {n.label}
                 </a>
@@ -152,7 +152,7 @@ function Home() {
           </ul>
           <a
             href="#contact"
-            className="hidden text-xs uppercase tracking-[0.22em] text-accent md:inline"
+            className="hidden text-sm text-accent transition-colors hover:text-accent/80 md:inline"
           >
             Join
           </a>
