@@ -137,8 +137,9 @@ function Home() {
         }`}
       >
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 md:px-10">
-          <a href="#top" className="text-sm uppercase tracking-[0.28em]">
-            Space Outreach Initiative
+          <a href="#top" className="flex items-center gap-3">
+            <img src="/logo.svg" alt="Space Outreach Initiative" className="h-8 w-8 text-white" />
+            <span className="text-sm uppercase tracking-[0.28em]">SOI</span>
           </a>
           <ul className="hidden gap-8 md:flex">
             {NAV.map((n) => (
