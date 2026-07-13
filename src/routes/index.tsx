@@ -355,13 +355,13 @@ function Home() {
           <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
               <p className="text-muted-foreground">
-                Selected talks from our monthly meetings, guest lectures, and public observing
-                nights.
+                <PlaceholderBadge className="mr-2 align-middle" />
+                Selected talks from our monthly meetings, guest lectures, and public observing nights.
               </p>
             </div>
             <FadeIn className="md:col-span-8">
               <div
-                className="aspect-video w-full overflow-hidden border border-border"
+                className="placeholder-frame aspect-video w-full overflow-hidden border border-border"
                 style={{ backgroundColor: "#1a1a2e" }}
               >
                 <iframe
