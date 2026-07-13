@@ -14,7 +14,6 @@ import n2 from "@/assets/n2.jpg";
 import n3 from "@/assets/n3.jpg";
 import { FadeIn } from "@/components/FadeIn";
 import { ArrowLink } from "@/components/ArrowLink";
-import { PlaceholderBadge } from "@/components/PlaceholderBadge";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,9 +40,9 @@ const NAV = [
 ];
 
 const HERO_FEATURES = [
-  { label: "Deep Sky Survey", title: "[Placeholder] Andromeda Field Report", href: "#news" },
-  { label: "Public Observing", title: "[Placeholder] Perseid Watch, August 12", href: "#news" },
-  { label: "Instrumentation", title: "[Placeholder] New 24-inch Ritchey-Chrétien", href: "#news" },
+  { label: "Deep Sky Survey", title: "Andromeda Field Report", href: "#news" },
+  { label: "Public Observing", title: "Perseid Watch, August 12", href: "#news" },
+  { label: "Instrumentation", title: "New 24-inch Ritchey-Chrétien", href: "#news" },
 ];
 
 const NEWS = [
@@ -90,22 +89,17 @@ function SectionHeader({
   title,
   linkLabel,
   href,
-  placeholder = false,
 }: {
   eyebrow: string;
-  title: React.ReactNode;
+  title: string;
   linkLabel?: string;
   href?: string;
-  placeholder?: boolean;
 }) {
   return (
     <div className="flex flex-wrap items-end justify-between gap-6">
       <div>
         <p className="text-xs uppercase tracking-[0.28em] text-accent">{eyebrow}</p>
-        <h2 className="mt-4 text-3xl md:text-4xl">
-          {placeholder && <PlaceholderBadge className="mr-2 align-middle" />}
-          {title}
-        </h2>
+        <h2 className="mt-4 text-3xl md:text-4xl">{title}</h2>
       </div>
       {linkLabel && href && <ArrowLink href={href}>{linkLabel}</ArrowLink>}
     </div>
@@ -169,15 +163,13 @@ function Home() {
 
       {/* Hero */}
       <section id="top" className="relative min-h-screen w-full overflow-hidden">
-        <div className="placeholder-frame absolute inset-0">
-          <img
-            src={hero}
-            alt="Deep space galaxy"
-            width={1920}
-            height={1280}
-            className="h-full w-full object-cover"
-          />
-        </div>
+        <img
+          src={hero}
+          alt="Deep space galaxy"
+          width={1920}
+          height={1280}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 pt-40 md:px-10 md:pb-14">
@@ -185,7 +177,6 @@ function Home() {
             Space Outreach Initiative
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
-            <PlaceholderBadge className="mr-2 align-middle" />
             Observing the deep sky and sharing it with the public since a time before digital
             imaging.
           </p>
@@ -230,7 +221,7 @@ function Home() {
         <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-12 px-6 md:grid-cols-12 md:gap-16 md:px-10">
           <FadeIn className="md:col-span-6">
             <div
-              className="placeholder-frame aspect-[4/5] w-full overflow-hidden"
+              className="aspect-[4/5] w-full overflow-hidden"
               style={{ backgroundColor: "#1a1a2e" }}
             >
               <img
@@ -246,24 +237,20 @@ function Home() {
           <FadeIn className="md:col-span-6 md:pl-8 lg:pl-16">
             <p className="text-xs uppercase tracking-[0.28em] text-accent">About</p>
             <h2 className="mt-6 text-3xl md:text-4xl lg:text-5xl">
-              <PlaceholderBadge className="mr-2 align-middle" />
               A quiet devotion to the night sky.
             </h2>
             <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                <PlaceholderBadge className="mr-2 align-middle" />
                 Founded by a small group of amateur astronomers in the high desert, Meridian has
                 grown into a working observatory, a research collaboration, and a public program
                 that welcomes thousands of visitors each year.
               </p>
               <p>
-                <PlaceholderBadge className="mr-2 align-middle" />
                 Our members contribute to occultation timing, variable-star photometry, and
                 asteroid recovery campaigns. We publish annual observing reports and maintain three
                 dark-sky sites open to the public on scheduled nights.
               </p>
               <p>
-                <PlaceholderBadge className="mr-2 align-middle" />
                 We believe that careful observation, patiently done, remains one of the most
                 rewarding things a person can do with their evenings.
               </p>
@@ -280,14 +267,13 @@ function Home() {
             title="Recent from the observatory."
             linkLabel="Recently published"
             href="#news"
-            placeholder
           />
           <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
             {NEWS.map((item) => (
               <FadeIn key={item.title}>
                 <article className="group">
                   <div
-                    className="placeholder-frame relative aspect-[4/3] w-full overflow-hidden"
+                    className="relative aspect-[4/3] w-full overflow-hidden"
                     style={{ backgroundColor: "#1a1a2e" }}
                   >
                     <img
@@ -308,10 +294,9 @@ function Home() {
                     </span>
                   </div>
                   <p className="mt-6 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    <PlaceholderBadge className="mr-2" /> {item.date} · {item.read}
+                    {item.date} · {item.read}
                   </p>
                   <h3 className="mt-3 text-xl leading-tight transition-colors group-hover:text-accent md:text-2xl">
-                    <PlaceholderBadge className="mr-2 align-middle" />
                     {item.title}
                   </h3>
                 </article>
@@ -329,7 +314,6 @@ function Home() {
             title="Images from our members."
             linkLabel="Full archive"
             href="#gallery"
-            placeholder
           />
         </div>
         <div className="mx-auto mt-16 grid max-w-[1400px] grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-3">
@@ -338,7 +322,7 @@ function Home() {
               key={img.src}
               type="button"
               onClick={() => setLightbox(img.src)}
-              className={`placeholder-frame group aspect-square overflow-hidden ${img.span ?? ""}`}
+              className={`group aspect-square overflow-hidden ${img.span ?? ""}`}
               style={{ backgroundColor: "#1a1a2e" }}
             >
               <img
@@ -360,18 +344,17 @@ function Home() {
             title="Recorded lectures."
             linkLabel="All talks"
             href="#presentations"
-            placeholder
           />
           <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
               <p className="text-muted-foreground">
-                <PlaceholderBadge className="mr-2 align-middle" />
-                Selected talks from our monthly meetings, guest lectures, and public observing nights.
+                Selected talks from our monthly meetings, guest lectures, and public observing
+                nights.
               </p>
             </div>
             <FadeIn className="md:col-span-8">
               <div
-                className="placeholder-frame aspect-video w-full overflow-hidden border border-border"
+                className="aspect-video w-full overflow-hidden border border-border"
                 style={{ backgroundColor: "#1a1a2e" }}
               >
                 <iframe
@@ -391,25 +374,19 @@ function Home() {
       <section id="team" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Team</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">
-            <PlaceholderBadge className="mr-2 align-middle" />
-            People behind the work.
-          </h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">People behind the work.</h2>
           <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
             {TEAM.map((p) => (
               <FadeIn key={p.name}>
                 <div>
                   <div
-                    className="placeholder-frame aspect-[4/5] w-full"
+                    className="aspect-[4/5] w-full"
                     style={{ backgroundColor: "#1a1a2e" }}
                     aria-hidden="true"
                   />
-                  <h3 className="mt-5 text-xl">
-                    <PlaceholderBadge className="mr-2 align-middle" />
-                    {p.name}
-                  </h3>
+                  <h3 className="mt-5 text-xl">{p.name}</h3>
                   <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    <PlaceholderBadge className="mr-2" /> {p.role}
+                    {p.role}
                   </p>
                 </div>
               </FadeIn>
@@ -422,12 +399,8 @@ function Home() {
       <section id="contact" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-2xl px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Contact</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">
-            <PlaceholderBadge className="mr-2 align-middle" />
-            Get in touch.
-          </h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">Get in touch.</h2>
           <p className="mt-6 text-muted-foreground">
-            <PlaceholderBadge className="mr-2 align-middle" />
             Questions about membership, observing nights, or research collaborations.
           </p>
           <form
@@ -486,10 +459,7 @@ function Home() {
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.22em] text-muted-foreground md:px-10">
           <span>© {new Date().getFullYear()} Space Outreach Initiative</span>
-          <span>
-            <PlaceholderBadge className="mr-2" />
-            Dark-sky preserve · High desert
-          </span>
+          <span>Dark-sky preserve · High desert</span>
         </div>
       </footer>
 

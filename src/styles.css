@@ -114,24 +114,3 @@
 .uppercase[class*="tracking-["] {
   font-family: var(--font-mono);
 }
-
-@utility placeholder-frame {
-  position: relative;
-  &::after {
-    content: "Placeholder image";
-    position: absolute;
-    top: 0.75rem;
-    left: 0.75rem;
-    z-index: 10;
-    background: rgba(8, 8, 15, 0.72);
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 0.35rem 0.7rem;
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: #fff;
-    pointer-events: none;
-  }
-}
