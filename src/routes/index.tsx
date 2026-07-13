@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { ArrowUpRight, FileText, Calendar, Play } from "lucide-react";
+import { ArrowUpRight, FileText, Calendar } from "lucide-react";
 
 import hero from "@/assets/hero.jpg";
 import about from "@/assets/about.jpg";
