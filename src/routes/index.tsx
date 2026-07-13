@@ -169,13 +169,15 @@ function Home() {
 
       {/* Hero */}
       <section id="top" className="relative min-h-screen w-full overflow-hidden">
-        <img
-          src={hero}
-          alt="Deep space galaxy"
-          width={1920}
-          height={1280}
-          className="placeholder-frame absolute inset-0 h-full w-full object-cover"
-        />
+        <div className="placeholder-frame absolute inset-0">
+          <img
+            src={hero}
+            alt="Deep space galaxy"
+            width={1920}
+            height={1280}
+            className="h-full w-full object-cover"
+          />
+        </div>
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-screen max-w-[1400px] flex-col justify-end px-6 pb-10 pt-40 md:px-10 md:pb-14">
