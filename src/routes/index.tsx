@@ -159,10 +159,13 @@ function Home() {
             ))}
           </ul>
           <a
-            href="#contact"
-            className="hidden text-sm text-accent transition-colors hover:text-accent/80 md:inline"
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2 border border-white/30 bg-transparent px-4 py-2 text-sm text-white/80 transition-colors hover:border-white/60 hover:text-white md:inline-flex"
           >
-            Join
+            <DiscordIcon className="h-4 w-4" />
+            Discord
           </a>
         </nav>
       </header>
