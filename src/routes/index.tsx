@@ -174,7 +174,7 @@ function Home() {
           alt="Deep space galaxy"
           width={1920}
           height={1280}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="placeholder-frame absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/70 to-transparent" />
 
