@@ -1,29 +1,19 @@
-## Typography Update
+The hero "About us" button currently uses a solid plasma-blue background (`bg-accent`), which draws too much attention against the dark space image.
 
-Replace the current font stack so every text tier uses the requested typeface.
+### Proposed change
+Replace the solid accent button with a subdued, institutional treatment that sits quietly on the hero:
 
-### What will change
+- **Visual style:** transparent background with a thin white/soft border (`border-white/30`) and white text, matching the feature-strip arrow circles and the overall dark, technical aesthetic.
+- **Typography:** keep the small uppercase tracked label in DM Mono, same as the current button.
+- **Hover:** slightly brighten the border and text (`hover:border-white/60 hover:text-accent`) for feedback without adding a new loud color.
+- **Shape:** keep the same inline-flex layout with the `ArrowUpRight` icon.
 
-1. **Headings / titles** → **Inter**, bold
-   - Keep Inter loaded from Google Fonts.
-   - Set `h1–h4` to `font-weight: 700` in `src/styles.css`.
+This makes the CTA feel like part of the hero's information layer rather than a separate, high-conversion marketing button.
 
-2. **Body / most text** → **Public Sans Web** (Google Fonts “Public Sans”)
-   - Swap out IBM Plex Sans in the Google Fonts link in `src/routes/__root.tsx`.
-   - Point `--font-sans` to `"Public Sans", sans-serif` in `src/styles.css`.
+### Alternative (if you want it even quieter)
+Reduce it to a minimal text link: white text + arrow, no border or background, with only an underline or color shift on hover.
 
-3. **Small notes / technical labels** → **DM Mono** as self-hosted `.woff2`
-   - Add DM Mono `.woff2` files under `public/fonts/`.
-   - Declare `@font-face` for DM Mono in `src/styles.css`.
-   - Keep `--font-mono` mapped to DM Mono for chips, eyebrow text, nav labels, etc.
+### Files to edit
+- `src/routes/index.tsx` — restyle the hero "About us" anchor around line 182.
 
-### Files touched
-
-- `src/routes/__root.tsx` — update Google Fonts link (Inter + Public Sans, remove IBM Plex Sans).
-- `src/styles.css` — set `--font-sans` to Public Sans, `--font-serif` to Inter, add `@font-face` for DM Mono woff2, make headings bold.
-- `public/fonts/` — add DM Mono woff2 files.
-
-### What stays the same
-
-- Color tokens, layout, sections, images, and all existing component logic.
-- DM Mono remains the font for uppercase technical/eyebrow text; only the file format/loading method changes.
+No new dependencies or sections needed.
