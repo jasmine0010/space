@@ -33,8 +33,6 @@ const NAV = [
   { id: "about", label: "About" },
   { id: "news", label: "News" },
   { id: "gallery", label: "Gallery" },
-  { id: "presentations", label: "Presentations" },
-  { id: "observing", label: "Observing" },
   { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
 ];
@@ -336,39 +334,6 @@ function Home() {
         </div>
       </section>
 
-      {/* Presentations */}
-      <section id="presentations" className="border-t border-border py-24 md:py-32">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <SectionHeader
-            eyebrow="Presentations"
-            title="Recorded lectures."
-            linkLabel="All talks"
-            href="#presentations"
-          />
-          <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
-            <div className="md:col-span-4">
-              <p className="text-muted-foreground">
-                Selected talks from our monthly meetings, guest lectures, and public observing
-                nights.
-              </p>
-            </div>
-            <FadeIn className="md:col-span-8">
-              <div
-                className="aspect-video w-full overflow-hidden border border-border"
-                style={{ backgroundColor: "#1a1a2e" }}
-              >
-                <iframe
-                  className="h-full w-full"
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Space Outreach Initiative — Featured Presentation"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
 
       {/* Team */}
       <section id="team" className="border-t border-border py-24 md:py-32">
