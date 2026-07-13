@@ -14,6 +14,7 @@ import n2 from "@/assets/n2.jpg";
 import n3 from "@/assets/n3.jpg";
 import { FadeIn } from "@/components/FadeIn";
 import { ArrowLink } from "@/components/ArrowLink";
+import { PlaceholderBadge } from "@/components/PlaceholderBadge";
 
 export const Route = createFileRoute("/")({
   head: () => ({
