@@ -358,9 +358,9 @@ function Home() {
             href={DISCORD_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 flex items-center gap-4 border border-border bg-transparent p-5 transition-colors hover:border-white/30"
+            className="mt-10 flex items-center gap-4 bg-transparent p-5 transition-colors"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 text-foreground">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-foreground">
               <DiscordIcon className="h-5 w-5" />
             </span>
             <div>
