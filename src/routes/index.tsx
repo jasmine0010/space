@@ -476,7 +476,10 @@ function Home() {
       <footer className="border-t border-border py-10">
         <div className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-4 px-6 text-xs uppercase tracking-[0.22em] text-muted-foreground md:px-10">
           <span>© {new Date().getFullYear()} Space Outreach Initiative</span>
-          <span>Dark-sky preserve · High desert</span>
+          <span>
+            <PlaceholderBadge className="mr-2" />
+            Dark-sky preserve · High desert
+          </span>
         </div>
       </footer>
 
