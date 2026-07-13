@@ -381,19 +381,25 @@ function Home() {
       <section id="team" className="border-t border-border py-24 md:py-32">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <p className="text-xs uppercase tracking-[0.28em] text-accent">Team</p>
-          <h2 className="mt-4 text-3xl md:text-4xl">People behind the work.</h2>
+          <h2 className="mt-4 text-3xl md:text-4xl">
+            <PlaceholderBadge className="mr-2 align-middle" />
+            People behind the work.
+          </h2>
           <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-10">
             {TEAM.map((p) => (
               <FadeIn key={p.name}>
                 <div>
                   <div
-                    className="aspect-[4/5] w-full"
+                    className="placeholder-frame aspect-[4/5] w-full"
                     style={{ backgroundColor: "#1a1a2e" }}
                     aria-hidden="true"
                   />
-                  <h3 className="mt-5 text-xl">{p.name}</h3>
+                  <h3 className="mt-5 text-xl">
+                    <PlaceholderBadge className="mr-2 align-middle" />
+                    {p.name}
+                  </h3>
                   <p className="mt-1 text-xs uppercase tracking-[0.22em] text-muted-foreground">
-                    {p.role}
+                    <PlaceholderBadge className="mr-2" /> {p.role}
                   </p>
                 </div>
               </FadeIn>
