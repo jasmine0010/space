@@ -353,6 +353,22 @@ function Home() {
           <p className="mt-6 text-muted-foreground">
             Questions about membership, observing nights, or research collaborations.
           </p>
+
+          <a
+            href={DISCORD_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 flex items-center gap-4 border border-border bg-transparent p-5 transition-colors hover:border-white/30"
+          >
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 text-foreground">
+              <DiscordIcon className="h-5 w-5" />
+            </span>
+            <div>
+              <p className="text-base text-foreground">Join us on Discord</p>
+              <p className="mt-1 text-sm text-muted-foreground">Community chat, events, and observing alerts.</p>
+            </div>
+          </a>
+
           <form
             className="mt-12 space-y-8"
             onSubmit={(e) => {
