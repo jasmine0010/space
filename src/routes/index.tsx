@@ -186,11 +186,11 @@ function Home() {
 
           <div className="mt-8">
             <a
-              href="#presentations"
+              href="#about"
               className="group inline-flex items-center gap-3 bg-accent px-6 py-3 text-xs uppercase tracking-[0.24em] text-accent-foreground transition-opacity hover:opacity-90"
             >
-              <Play size={14} strokeWidth={2} fill="currentColor" />
-              Watch the film
+              <ArrowUpRight size={14} strokeWidth={2} />
+              About us
             </a>
           </div>
 
