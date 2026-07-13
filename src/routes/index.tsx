@@ -358,6 +358,7 @@ function Home() {
             title="Recorded lectures."
             linkLabel="All talks"
             href="#presentations"
+            placeholder
           />
           <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
             <div className="md:col-span-4">
