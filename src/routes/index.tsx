@@ -178,6 +178,7 @@ function Home() {
             Space Outreach Initiative
           </h1>
           <p className="mt-6 max-w-xl text-base text-white/80 md:text-lg">
+            <PlaceholderBadge className="mr-2 align-middle" />
             Observing the deep sky and sharing it with the public since a time before digital
             imaging.
           </p>
