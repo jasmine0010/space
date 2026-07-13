@@ -33,7 +33,6 @@ const NAV = [
   { id: "about", label: "About" },
   { id: "news", label: "News" },
   { id: "gallery", label: "Gallery" },
-  { id: "team", label: "Team" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -75,12 +74,6 @@ const GALLERY = [
   { src: g5, alt: "Cosmic cliffs" },
 ];
 
-const TEAM = [
-  { name: "Dr. Elena Vasquez", role: "Director of Research" },
-  { name: "Marcus Chen", role: "Chief Observer" },
-  { name: "Amara Okonkwo", role: "Outreach Lead" },
-  { name: "Dr. Rafael Silva", role: "Instrumentation" },
-];
 
 function SectionHeader({
   eyebrow,
